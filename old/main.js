@@ -3,6 +3,7 @@ var prompt = require('prompt');
 
 var move = require("./move.js");
 var possibleMove = require("./possibleMove.js");
+var view = require("./view.js");
 
 var board = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 var availableDir = { l: false, r: false, u: false, d: false };
@@ -13,43 +14,17 @@ function onErr(err) {
 	return 1;
 }
 
-/**
- * Returns a random integer between min (inclusive) and max (inclusive)
- */
-var getRandomInt = function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 var increaseScore = function(value) {
 	currentScore += value;
 }
 
-var printBoard = function(board) {
-	console.log("+--------+--------+--------+--------+");
-	for(var i = 0; i < 4; i++) {
-		console.log("|        |        |        |        |");
-		for(var j = 0; j < 4; j++) {
-			if(board[i][j] == 0) {
-				process.stdout.write("|        ");
-			}
-			else if(board[i][j] > 0 && board[i][j] < 10) {
-				process.stdout.write("|   " + board[i][j] + "    ");
-			}
-			else if(board[i][j] >= 10 && board[i][j] < 100) {
-				process.stdout.write("|   " + board[i][j] + "   ");
-			}
-			else if(board[i][j] >= 100 && board[i][j] < 1000) {
-				process.stdout.write("|  " + board[i][j] + "   ");
-			}
-			else {
-				process.stdout.write("|  " + board[i][j] + "  ");
-			}
-		}
-		process.stdout.write("|\n");
-		console.log("|        |        |        |        |");
-		console.log("+--------+--------+--------+--------+");
-	}
+//
+// Returns a random integer between min (inclusive) and max (inclusive)
+//
+var getRandomInt = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 var randomValue = function () {
 	var index = getRandomInt(0, 4);
 	if(index < 4) {
@@ -184,7 +159,7 @@ var main = function () {
 					console.log("Congradulation! You Won!");
 					return 0;
 				}
-			}
+			}prompt.start();
 		}
 
 		main();
@@ -194,5 +169,5 @@ var main = function () {
 board = randomItem(board);
 board = randomItem(board);
 
-printBoard(board);
+view.printBoard(board);
 main();
