@@ -330,6 +330,7 @@ var main = function() {
 	$(document).keydown(function(e) { //Arrow Keys
 		if(e.which == 37) { //Left Key
 			//$("#debug").text("Left");
+			e.preventDefault();
 			if(availableDir.l === true) { //Move must be possible
 				//Shifts all tiles left
 				currentBoard = move(currentBoard,"LEFT");
@@ -342,6 +343,7 @@ var main = function() {
 		}
 		else if(e.which == 38) { //Up Key
 			//$("#debug").text("Up");
+			e.preventDefault();
 			if(availableDir.u === true) { //Move must be possible
 				//Shifts all tiles up
 				currentBoard = move(currentBoard,"UP");
@@ -354,6 +356,7 @@ var main = function() {
 		}
 		else if(e.which == 39) { //Right Key
 			//$("#debug").text("Right");
+			e.preventDefault();
 			if(availableDir.r === true) { //Move must be possible
 				//Shifts all tiles right
 				currentBoard = move(currentBoard,"RIGHT");
@@ -366,6 +369,7 @@ var main = function() {
 		}
 		else if(e.which == 40) { //Down Key
 			//$("#debug").text("Down");
+			e.preventDefault();
 			if(availableDir.d === true) { //Move must be possible
 				//Shifts all tiles down
 				currentBoard = move(currentBoard,"DOWN");
