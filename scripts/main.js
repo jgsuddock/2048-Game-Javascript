@@ -253,10 +253,6 @@ var printBoard = function(board) {
  * main.js
  */
 
-var increaseScore = function(value) {
-	currentScore += value;
-}
-
 //
 // Returns a random integer between min (inclusive) and max (inclusive)
 //
@@ -265,8 +261,8 @@ var getRandomInt = function(min, max) {
 }
 
 var randomValue = function() {
-	var index = getRandomInt(0, 4);
-	if(index < 4) {
+	var index = getRandomInt(0, 9);
+	if(index < 9) {
 		return 2;
 	}
 	else {
